@@ -1,0 +1,88 @@
+#!/usr/bin/env groovy
+
+pipeline {
+	environment{
+		version = ""
+		MAVEN_HOME = "C:\\Tools\\apache-maven-3.6.3"
+	}
+    agent { 
+        label 'master'
+        }
+stages {
+	
+	stage('clean WorkSpace'){
+        steps {
+             cleanWs()
+        }
+            }
+    
+    stage('Checkout') { 
+            steps {
+                git branch: 'master', credentialsId: 'TCGeneratorGitHub', url: 'https://github.com/rkgithubprojects/testaccelerator.git'
+				script{
+                    version = "1.0.${BUILD_NUMBER}"		
+                }
+            }
+        }	
+		
+	stage('Build')
+	{
+		steps {
+			bat "${MAVEN_HOME}\\bin\\mvn clean install"
+
+		}
+	}
+	stage('Packing')
+	{
+		steps {
+			bat "C:\\Tools\\Octo.exe pack --id=TestAccelerator --Version=$version --basePath=target --include=*.war --OutFolder=$WORKSPACE"
+
+		}
+	}
+	stage('Upload Artifacts'){
+
+		steps {
+			script{
+				def server = Artifactory.server 'Art-1'
+				
+				def uploadSpec = """{
+
+			   "files": [
+							{
+								"pattern": "**/*.nupkg",
+
+								"target": "DevOpsNuget/TestAccelerator/"
+							}
+						]
+
+			}"""
+
+			server.upload(uploadSpec)
+			}
+		}
+	}
+	stage('Deployment'){
+		steps {
+			bat "C:\\Tools\\Octo.exe create-release --project=\"TestAccelerator\" --releaseNumber=$version --packageversion=$version --server=https://ec2-3-17-206-183.us-east-2.compute.amazonaws.com --user=admin --pass=password"
+			}
+		}
+	}
+
+    options {
+        buildDiscarder(logRotator(daysToKeepStr: '30', numToKeepStr: '5')) 
+    }
+	post
+		{
+    always{
+       cleanWs()
+      }
+	success
+		{
+		  echo "All OK"
+		}
+	failure
+		{
+		  echo "Something went WRONG"
+		}
+	}
+}
