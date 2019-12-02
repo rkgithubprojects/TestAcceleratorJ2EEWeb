@@ -73,9 +73,7 @@ stages {
     }
 	post
 		{
-    always{
-       //cleanWs()
-      }
+  
 	success
 		{
 		  echo "All OK"
