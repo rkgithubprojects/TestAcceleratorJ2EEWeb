@@ -6,8 +6,11 @@ pipeline {
 		MAVEN_HOME = "C:\\Tools\\apache-maven-3.6.3"
 	}
     agent { 
-        label 'master'
-		customWorkspace  "C:\\devops"
+			 node
+			{
+				label 'master'
+				customWorkspace  "C:\\devops"
+			}
         }
 stages {
 	
