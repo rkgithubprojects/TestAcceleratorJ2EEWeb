@@ -93,7 +93,7 @@
 				<configuration>
 					<warSourceDirectory>${basedir}/target/</warSourceDirectory>
 					<webXml>${basedir}/WebContent/WEB-INF/web.xml</webXml>
-					<warName>TCgenerator</warName>
+					<warName>TestAccelerator</warName>
 					<outputDirectory>${basedir}/target/</outputDirectory>
 				</configuration>
 			</plugin>
