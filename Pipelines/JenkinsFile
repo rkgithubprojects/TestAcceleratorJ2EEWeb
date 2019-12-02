@@ -49,7 +49,7 @@ stages {
 
 			   "files": [
 							{
-								"pattern": "**/*.nupkg",
+								"pattern": "target/*.nupkg",
 
 								"target": "DevOpsNuget/TestAccelerator/"
 							}
