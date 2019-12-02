@@ -35,7 +35,7 @@ stages {
 	stage('Packing')
 	{
 		steps {
-			bat "C:\\Tools\\Octo.exe pack --id=TestAccelerator --Version=$version --basePath=target --include=*.war --OutFolder=$WORKSPACE"
+			bat """C:\\Tools\\Octo.exe pack --id=TestAccelerator --Version=$version --basePath=target --include=*.war --OutFolder=\"${WORKSPACE}\""""
 
 		}
 	}
