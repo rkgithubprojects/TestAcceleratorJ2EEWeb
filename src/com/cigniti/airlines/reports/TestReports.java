@@ -40,7 +40,7 @@ public class TestReports {
 	{
 		Writer writer = null;
 		
-		File file = new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/Output/Reports/TestReports.html");
+		File file = new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/TCgenerator/Output/Reports/TestReports.html");
 
 		writer = new FileWriter(file, false);
 		
@@ -58,7 +58,7 @@ public class TestReports {
 			i=i+1;
 			writer.write("<tr>");
 			writer.write("<td>"+i+"</td>");
-			writer.write("<td><a href='/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/Output/Reports/SummaryReports.html'>"+string+"</a></td>");
+			writer.write("<td><a href='/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/TCgenerator/Output/Reports/SummaryReports.html'>"+string+"</a></td>");
 			writer.write("<td>PASS</td>");
 			writer.write("</tr>");
 		}

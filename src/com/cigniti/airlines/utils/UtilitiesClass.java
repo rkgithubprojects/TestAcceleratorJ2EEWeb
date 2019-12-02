@@ -86,7 +86,7 @@ public class UtilitiesClass {
 			TakesScreenshot scr=(TakesScreenshot)driver;
 			File srcFile=scr.getScreenshotAs(OutputType.FILE);
 			scrName="SCR_"+dateFormat.format(date)+".png";
-			FileUtils.copyFile(srcFile, new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/Output/Reports/"+scrName));
+			FileUtils.copyFile(srcFile, new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/TCgenerator/Output/Reports/"+scrName));
 												 
 		} catch (Exception e) {
 			e.printStackTrace();

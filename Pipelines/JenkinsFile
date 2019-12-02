@@ -63,7 +63,7 @@ stages {
 	}
 	stage('Deployment'){
 		steps {
-			bat "C:\\Tools\\Octo.exe create-release --project=\"TestAccelerator\" --releaseNumber=$version --packageversion=$version --server=https://ec2-3-17-206-183.us-east-2.compute.amazonaws.com --user=admin --pass=password"
+			bat "C:\\Tools\\Octo.exe create-release --project=\"TestAccelerator\" --releaseNumber=$version --packageversion=$version --server=http://ec2-3-17-206-183.us-east-2.compute.amazonaws.com --user=admin --pass=password"
 			}
 		}
 	}

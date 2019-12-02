@@ -18,7 +18,7 @@ public class GenerateReports extends BaseClass{
 			int passCount=0;
 			int failCount=0;
 			//int totalCount=passCount+failCount;
-			File file = new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/Output/Reports/SummaryReports.html");
+			File file = new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/TCgenerator/Output/Reports/SummaryReports.html");
 			
 
 			writer = new FileWriter(file, false);
@@ -137,7 +137,7 @@ public class GenerateReports extends BaseClass{
 			
 			int count=0;
 
-			File file = new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/Output/Reports/"+reportName+".html");
+			File file = new File("/Users/ctl-user/Documents/BackupTestAccelerator/AirlineRecent/TCgenerator/Output/Reports/"+reportName+".html");
 		
 			writer = new FileWriter(file, false);
 			writer.write("<html><head><style>table, th, td {border-collapse: collapse;border: 1px solid black;}</style><body bgcolor='#ffffff'>");
